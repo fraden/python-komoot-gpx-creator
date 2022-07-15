@@ -26,7 +26,7 @@ def bike_tours(tours: List[dict]) -> List[dict]:
     return tours_filtered
 
 
-def aggregate_by_date(tours: List[dict]):
+def aggregate_by_date(tours: List[dict]) -> dict:
     """
     This method is aggregating the tours by date.
     Args:
