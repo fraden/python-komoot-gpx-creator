@@ -1,7 +1,7 @@
 import uuid
-import requests
 import os
 
+import requests
 import gpxpy.gpx
 
 from helpers import *
@@ -36,8 +36,7 @@ for date in dict_tours_by_date.keys():
     gpx.simplify(max_distance=config.gpx_max_distance)
     gpx_txt = gpx.to_xml()
 
-    path = os.path.join(os.path.realpath('..'), config.output_folder,
-                        gpx.name + ".gpx")
+    path = os.path.join(config.output_folder, gpx.name + ".gpx")
 
     out.write_gpx(path, gpx_txt)
 

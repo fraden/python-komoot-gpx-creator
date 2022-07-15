@@ -38,8 +38,7 @@ def meta_script(dict_of_trips: dict, output_folder: str) -> None:
                + random_color() + "',\nadded:'2020-01-01'},"
 
     text = text + "}\nmodule.exports = { meta }"
-    f = open(os.path.join(os.path.realpath('..'), output_folder, "meta.js"),
-             'w', encoding="utf-8")
+    f = open(os.path.join(output_folder, "meta.js"), 'w', encoding="utf-8")
     f.write(text)
     f.close()
     return None
