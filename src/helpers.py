@@ -22,5 +22,6 @@ def remove_special_characters(string: str) -> str:
     Returns:
         str: modified input string, that does not contain special characters
     """
-    string = string.replace("ä", "ae").replace("ö", "oe").replace("ü", "ue")
+    string = string.replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").\
+        replace("ß", "ss")
     return re.sub('[^A-Za-z0-9]+', '_', string)
