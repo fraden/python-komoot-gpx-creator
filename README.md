@@ -1,3 +1,7 @@
+<h1 align="center">
+<img src="https://user-images.githubusercontent.com/36852852/184627337-c1cb0c7a-4134-4425-8875-d92fbe0516bc.png" width="150">
+</h1><br>
+
 # python-komoot-gpx-creator
 
 ## Getting started
