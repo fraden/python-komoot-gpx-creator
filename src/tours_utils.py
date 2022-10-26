@@ -43,5 +43,3 @@ def aggregate_by_date(tours: List[dict]) -> dict:
         else:
             dict_output_dates[date] = [idx]
     return dict_output_dates
-
-

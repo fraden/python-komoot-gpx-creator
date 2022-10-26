@@ -27,7 +27,8 @@ for date in dict_tours_by_date.keys():
     tours.reverse()
 
     gpx.name = remove_special_characters(
-        tours[-1]['name'].replace('Bosch eBike Tour: ', '') + "_" + str(uuid.uuid4())[:8]
+        tours[-1]['name'].replace('Bosch eBike Tour: ', '') + "_" + str(
+            uuid.uuid4())[:8]
     )
 
     for tour in tours:

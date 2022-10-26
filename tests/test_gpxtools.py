@@ -45,7 +45,7 @@ def test_add_coords_to_track():
     gpx = gpxpy.gpx.GPX()
     track = gpxpy.gpx.GPXTrack()
     gpx.tracks.append(track)
-    gpxtools.add_coords_to_track( 1, "gpx_name", track, ("user", "pwd"))
+    gpxtools.add_coords_to_track(1, "gpx_name", track, ("user", "pwd"))
     points = gpx.get_points_data()
 
     assert track.get_points_no() == 2
