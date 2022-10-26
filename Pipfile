@@ -6,8 +6,13 @@ name = "pypi"
 [packages]
 gpxpy = "*"
 requests = "*"
+pytest = "*"
+pytest-dotenv = "*"
 
 [dev-packages]
+coverage = "*"
+pytest-dotenv = "*"
+mockito = "*"
 
 [requires]
 python_version = "3.9"

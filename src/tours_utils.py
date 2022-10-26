@@ -37,12 +37,11 @@ def aggregate_by_date(tours: List[dict]) -> dict:
     """
     dict_output_dates = dict()
     for idx, tour in enumerate(tours):
-        if tour['type'] != 'tour_recorded' and \
-                tour['sport'] != 'touringbicycle':
-            continue
         date = datetime.strptime(tour['date'], "%Y-%m-%dT%H:%M:%S.%f%z").date()
         if date in dict_output_dates:
             dict_output_dates[date].append(idx)
         else:
             dict_output_dates[date] = [idx]
     return dict_output_dates
+
+

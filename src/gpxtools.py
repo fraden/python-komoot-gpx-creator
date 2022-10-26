@@ -65,6 +65,6 @@ def add_coords_to_track(
     for coord in tour_info['_embedded']['coordinates']['items']:
         if is_acceptable_point(coord):
             segment.points.append(
-                gpx_point(coord)
+                gpx_point(coord) # todo: fix bug, if multiple tracks per tour -> second track should begin where first ended
             )
     return None
