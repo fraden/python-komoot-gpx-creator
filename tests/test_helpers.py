@@ -33,6 +33,11 @@ def test_remove_special_characters_for_oe():
     assert helpers.remove_special_characters(string_1) == "Loewe"
 
 
+def test_remove_special_characters_for_ss():
+    string_1 = "Spaß"
+    assert helpers.remove_special_characters(string_1) == "Spass"
+
+
 def test_remove_special_characters_for_special_character():
     string_1 = "Haee.#+?=dkkd"
     assert helpers.remove_special_characters(string_1) == "Haee_dkkd"
