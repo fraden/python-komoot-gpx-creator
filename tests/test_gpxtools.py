@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from mockito import when, mock, unstub, ANY
+from mockito import when, unstub
 import requests
 from requests.models import Response
 
@@ -55,3 +55,5 @@ def test_add_coords_to_track():
     assert points[1].point.latitude == 3
     assert points[1].point.longitude == 4
     assert points[1].point.elevation == 30
+
+    unstub()
