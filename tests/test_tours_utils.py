@@ -29,8 +29,8 @@ def test_bike_tours_for_irrelevant_keys():
 
     tours = tours_utils.bike_tours(tours)
     assert 'irrelevant_key_0' not in tours[0].keys()
-    assert 'irrelevant_key_1' not in tours[0].keys()
-    assert 'irrelevant_key_2' not in tours[0].keys()
+    assert 'irrelevant_key_1' not in tours[1].keys()
+    assert 'irrelevant_key_2' not in tours[2].keys()
 
 
 def test_bike_tours_for_irrelevant_tour_type():
