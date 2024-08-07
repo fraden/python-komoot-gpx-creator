@@ -1,7 +1,8 @@
 import requests
+import os
 
 import gpxpy.gpx
-from datetime import timedelta
+from datetime import timedelta, datetime
 from typing import Tuple
 
 import config
@@ -23,12 +24,15 @@ def is_acceptable_point(coord: dict) -> bool:
     return not (current_coord in wrong_points)
 
 
-def gpx_point(coord: dict) -> gpxpy.gpx.GPXTrackPoint:
+def gpx_point(coord: dict,
+              start_date: datetime.strptime) -> \
+        gpxpy.gpx.GPXTrackPoint:
     """
     This method is converting the the dict with the coordinates information to
     a gpxpy.gpx.GPXTrackPoint
     Args:
         coord (dict): contains the coordination information
+        start_date (datetime.strptime)
 
     Returns:
         gpxpy.gpx.GPXTrackPoint: gps point, containing lat, lon, elevation and
@@ -36,7 +40,7 @@ def gpx_point(coord: dict) -> gpxpy.gpx.GPXTrackPoint:
     """
     point = gpxpy.gpx.GPXTrackPoint(coord['lat'], coord['lng'])
     point.elevation = coord['alt']
-    point.time = config.start_date + timedelta(seconds=coord['t'] / 1000)
+    point.time = start_date + timedelta(seconds=coord['t'] / 1000)
     return point
 
 
@@ -62,9 +66,14 @@ def add_coords_to_track(
     url_tour = "https://api.komoot.de/v007/tours/" + str(tour_id) + \
                "?_embedded=coordinates"
     tour_info = requests.get(url_tour, auth=auth).json()
+    if os.getenv('SHOW_REAL_DATES'):
+        start_date = datetime.strptime(tour_info['date'],
+                               "%Y-%m-%dT%H:%M:%S.%f%z")
+    else:
+        start_date = config.start_date
     for coord in tour_info['_embedded']['coordinates']['items']:
         if is_acceptable_point(coord):
             segment.points.append(
-                gpx_point(coord)
+                gpx_point(coord, start_date=start_date)
             )
     return None
