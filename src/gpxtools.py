@@ -66,7 +66,7 @@ def add_coords_to_track(
     url_tour = "https://api.komoot.de/v007/tours/" + str(tour_id) + \
                "?_embedded=coordinates"
     tour_info = requests.get(url_tour, auth=auth).json()
-    if os.getenv('SHOW_REAL_DATES'):
+    if os.getenv('SHOW_REAL_DATES') == '1':
         start_date = datetime.strptime(tour_info['date'],
                                "%Y-%m-%dT%H:%M:%S.%f%z")
     else:

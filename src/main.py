@@ -27,7 +27,7 @@ for date in dict_tours_by_date.keys():
 
     tours = [filtered_tours[idx] for idx in dict_tours_by_date[date]]
     tours.reverse()
-    if os.getenv('SHOW_REAL_DATES'):
+    if os.getenv('SHOW_REAL_DATES') == '1':
         date_in_metadata = str(date)
         postfix = date_in_metadata
     else:
